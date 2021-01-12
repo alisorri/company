@@ -15,14 +15,9 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  db.createTable('users',{
-    id:{type:'int',primaryKey:true,autoIncrement: true},
-    firstName:'string',
-    lastName:'string',
-    email:'string',
-    password:'string',
-    token:"string"
-  });
+  db.insert("users",['firstName','lastName','email','password'],['Ali','Sorri','ali@gmail.com','123456'],(err)=>{
+
+  })
   return null;
 };
 

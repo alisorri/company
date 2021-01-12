@@ -1,4 +1,4 @@
-FROM node:8
+FROM node
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -17,6 +17,7 @@ COPY . .
 RUN npm install
 RUN npm install -g db-migrate
 RUN npm install -g db-migrate-mysql
+RUN npm install -g --save nodemon
 
 
 EXPOSE 3000

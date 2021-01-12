@@ -14,7 +14,21 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
+exports.up = async function(db) {
+  await db.createTable('employees',{
+    id:{type:'int',primaryKey:true,autoIncrement: true},
+    firstName:{type:'string',notNull: true},
+    lastName:{type:'string',notNull: true},
+    age:'int',
+    managerId:'int',
+    isManager:'boolean',
+    departmentId:{type:'int'},
+    userId:{type:'int',notNull:true},
+    userAddedOrder:{type:'int',notNull:true}
+  });
+  db.addIndex('employees','unique_insert',['userId','userAddedOrder'],true,(err)=>{
+
+  });
   return null;
 };
 
